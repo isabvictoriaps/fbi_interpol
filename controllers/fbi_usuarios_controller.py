@@ -2,7 +2,6 @@ from flask_restful import Resource
 from models.fbi_usuarios_model import FBIUsuario
 import requests
 import json
-import cx_Oracle
 
 class FBIUsuariosResource(Resource):
     def get(self):
