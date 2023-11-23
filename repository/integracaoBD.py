@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, joinedload, aliased
 from models.user_model import Usuarios_oportuniza, table_usuario
+from models.curso_model import Cursos_oportuniza, table_curso
 
 # Configurar a URL de conexão
 username = 'RM96104'
@@ -20,6 +21,7 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 table_usuario.metadata.create_all(engine)
+table_curso.metadata.create_all(engine)
 
 # Teste a conexão
 try:

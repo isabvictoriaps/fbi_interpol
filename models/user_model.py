@@ -11,13 +11,15 @@ class Usuarios_oportuniza(table_usuario):
     usuario = Column(String(255))
     email = Column(String(255))
     senha = Column(String(255))
+    img_usuario = Column(String(255))
     
 
-    def __init__(self, id, nome_completo, usuario, email, senha):
+    def __init__(self, id, nome_completo, usuario, email, senha, img_usuario):
         self.id = id
         self.nome_completo = nome_completo
         self.usuario = usuario
         self.email = email
         self.senha = senha
+        self.img_usuario = img_usuario
 
   
