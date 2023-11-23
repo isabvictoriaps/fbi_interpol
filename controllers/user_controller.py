@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from passlib.hash import pbkdf2_sha256
-from service.curso_service import fetch_curso_by_id, fetch_curso_by_empresa, add_curso_to_db, upload_imagem_curso
+from service.curso_service import fetch_curso_by_id, fetch_curso_by_empresa, add_curso_to_db, upload_imagem_curso, buscar_cursos, curso_to_dict
 from service.user_service import fetch_user_by_username, fetch_user_by_email, add_user_to_db, upload_imagem_usuario
 from uuid import uuid4
 
@@ -100,3 +100,9 @@ def cadastro_curso():
         add_curso_to_db(id_curso, nome_curso, empresa_curso, img_curso, link_curso)
 
     return jsonify({'message': 'Curso cadastrado com sucesso'}), 201
+
+@app.route('/curso', methods=['GET'])
+def busca_curso():
+    cursos = buscar_cursos()
+    cursos_dicts = [curso_to_dict(curso) for curso in cursos]
+    return jsonify(cursos_dicts)

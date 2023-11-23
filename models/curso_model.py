@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 table_curso = declarative_base()
 
 class Cursos_oportuniza(table_curso):
-    __tablename__ = 'curso_oportuniza'
+    __tablename__ = 'course_oportuniza'
 
     id_curso = Column(String(255), primary_key=True)
     nome_curso = Column(String(255))

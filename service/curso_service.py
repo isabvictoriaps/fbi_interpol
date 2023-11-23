@@ -30,6 +30,24 @@ def fetch_curso_by_empresa(nome_empresa):
     session.close()
     return curso
 
+def buscar_cursos():
+    session = Session()
+    curso = session.query(Cursos_oportuniza).all()
+    session.close()
+    return curso
+
+
+
 def upload_imagem_curso(imagem_base64):
     response = cloudinary.uploader.upload(imagem_base64)
     return response['secure_url']
+
+def curso_to_dict(curso):
+    return {
+        "id": curso.id_curso,
+        "nome_curso": curso.nome_curso,
+        "empresa_curso": curso.empresa_curso,
+        "img_curso": curso.img_curso,
+        "link_curso": curso.link_curso,
+
+    }
